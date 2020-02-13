@@ -214,10 +214,12 @@ class SingleuserProfiles(object):
 
   @classmethod
   def apply_pod_profile(self, spawner, pod, profile):
-    envV = profile.get('env')
-    print('XXX: ', envV)
-    if envV:
-      if isinstance(envV, dict):
+    api_client = kubernetes.client.ApiClient()
+
+    profile_enviroment = profile.get('env')
+
+    if profile_enviroment:
+      if isinstance(profile_enviroment, dict):
         for k, v in profile['env'].items():
           update = False
           for e in pod.spec.containers[0].env:
@@ -227,9 +229,13 @@ class SingleuserProfiles(object):
               break
           if not update:
             pod.spec.containers[0].env.append(V1EnvVar(k, v))
-      elif isinstance(envV, list):
-          pass
-        
+      elif isinstance(profile_enviroment, list):
+        for i in profile_enviroment:
+          r = type("Response", (), {})
+          r.data = i
+          env_var = api_client.deserialize(r, V1EnvVar)
+          pod.spec.containers[0].env.append(env_var)
+          
 
     if pod.spec.containers[0].resources and profile.get('resources'):
       if profile['resources'].get('mem_limit'):
