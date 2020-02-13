@@ -214,16 +214,34 @@ class SingleuserProfiles(object):
 
   @classmethod
   def apply_pod_profile(self, spawner, pod, profile):
-    if profile.get('env'):
-      for k, v in profile['env'].items():
-        update = False
-        for e in pod.spec.containers[0].env:
-          if e.name == k:
-            e.value = v
-            update = True
-            break
-        if not update:
-          pod.spec.containers[0].env.append(V1EnvVar(k, v))
+    envV = profile.get('env')
+
+    if envV:
+      if isinstance(envV, dict):
+        for k, v in profile['env'].items():
+          update = False
+          for e in pod.spec.containers[0].env:
+            if e.name == k:
+              e.value = v
+              update = True
+              break
+          if not update:
+            pod.spec.containers[0].env.append(V1EnvVar(k, v))
+      elif isinstance(envV, list):
+        for k, v in profile['env']:
+          update = False
+          if isinstance(v, dict):
+            #TODO
+            pass
+          else:
+            for e in pod.spec.containers[0].env:
+              if e.name == k:
+                e.value = v
+                update = True
+                break
+            if not update:
+              pod.spec.containers[0].env.append(V1EnvVar(k, v))
+        
 
     if pod.spec.containers[0].resources and profile.get('resources'):
       if profile['resources'].get('mem_limit'):
