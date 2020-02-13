@@ -231,8 +231,12 @@ class SingleuserProfiles(object):
         for k, v in profile['env']:
           update = False
           if isinstance(v, dict):
-            #TODO
-            pass
+            if e.name == k:
+                e.value = v
+                update = True
+                break
+            if not update:
+              pod.spec.containers[0].env.append(V1EnvVar(k, None, v))
           else:
             for e in pod.spec.containers[0].env:
               if e.name == k:
