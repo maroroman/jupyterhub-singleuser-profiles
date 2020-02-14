@@ -1,6 +1,7 @@
 import kubernetes
 import os
 import yaml
+import json
 import logging
 from kubernetes.client import V1EnvVar, V1ConfigMap, V1ObjectMeta, V1SecurityContext, V1Capabilities, V1SELinuxOptions
 from kubernetes.client.rest import ApiException
@@ -248,7 +249,7 @@ class SingleuserProfiles(object):
       elif isinstance(profile_enviroment, list):
         for i in profile_enviroment:
           r = type("Response", (), {})
-          r.data = i
+          r.data = json.dumps(i)
           env_var = api_client.deserialize(r, V1EnvVar)
           pod.spec.containers[0].env.append(env_var)
           
