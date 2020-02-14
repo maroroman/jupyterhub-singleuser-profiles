@@ -223,7 +223,7 @@ class SingleuserProfiles(object):
     profile1["name"] =  ", ".join(filter(None, [profile1.get("name", ""), profile2.get("name", "")]))
     profile1["images"] = list(set(profile1.get("images", []) + profile2.get("images", [])))
     profile1["users"] = list(set(profile1.get("users", []) + profile2.get("users", [])))
-    profile1["env"] = list(set(profile1.get('env', []), profile2.get('env', [])))
+    profile1["env"] = list(set(profile1.get('env', []) + profile2.get('env', [])))
     profile1["resources"] = {**profile1.get('resources', {}), **profile2.get('resources', {})}
     profile1["services"] = {**profile1.get('services', {}), **profile2.get('services', {})}
     return profile1
