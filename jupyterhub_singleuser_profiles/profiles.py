@@ -203,11 +203,27 @@ class SingleuserProfiles(object):
     }
 
   @classmethod
+  def env_dict_to_list(self, env_data):
+    result = []
+    
+    for k, v in env_data.items():
+      result.append({"name": k, "value": v})
+
+    return result
+
+
+  @classmethod
   def merge_profiles(self, profile1, profile2):
+
+    if isinstance(profile1['env'], dict):
+      profile1['env'] = self.env_dict_to_list(profile1['env'])
+    if isinstance(profile2['env'], dict):
+      profile2['env'] = self.env_dict_to_list(profile2['env'])
+
     profile1["name"] =  ", ".join(filter(None, [profile1.get("name", ""), profile2.get("name", "")]))
     profile1["images"] = list(set(profile1.get("images", []) + profile2.get("images", [])))
     profile1["users"] = list(set(profile1.get("users", []) + profile2.get("users", [])))
-    profile1["env"] = {**profile1.get('env', {}), **profile2.get('env', {})}
+    profile1["env"] = list(set(profile1.get('env', []), profile2.get('env', [])))
     profile1["resources"] = {**profile1.get('resources', {}), **profile2.get('resources', {})}
     profile1["services"] = {**profile1.get('services', {}), **profile2.get('services', {})}
     return profile1
