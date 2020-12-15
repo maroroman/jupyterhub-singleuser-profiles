@@ -63,6 +63,16 @@ class SizesForm extends React.Component {
         this.updateConfigmap()
     }
 
+    countInArray(array, item) {
+        var count = 0;
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === item) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     isSizeCorrect() {
         console.log("Checking sizes...")
         for(var i = 0; i < this.state.sizeList.length; i++) {
