@@ -2,9 +2,26 @@ import os
 import yaml
 import logging
 import json
+from typing import List
+from pydantic import BaseModel
+from enum import Enum
 
 _LOGGER = logging.getLogger(__name__)
 IMAGE_LABEL = 'opendatahub.io/notebook-image'
+
+class NameVersionPair(str, Enum):
+    name = 'name'
+    version = 'version'
+
+class ImageTagInfo(BaseModel):
+    software: List[NameVersionPair]
+    dependencies: List[NameVersionPair]
+
+class ImageInfo(BaseModel):
+    description: Optional[str]
+    url: Optional[str]
+    name: Optional[str]
+    tag_specific: ImageTagInfo
 
 class Images(object):
     def __init__(self, openshift, namespace):
@@ -30,7 +47,7 @@ class Images(object):
     def append_option(self, image, result):
         name = image.metadata.name
         if not image.status.tags:
-            return ''
+            return
         for tag in image.status.tags:
             selected = ""
             image_tag = "%s:%s" % (name, tag.tag)
@@ -54,6 +71,6 @@ class Images(object):
         else:
             for i in imagestream_list.items:
                 if i.metadata.name == image_name:
-                    return yaml.load(i.metadata.annotations)
+                    return dict(i.metadata.annotations)
 
         return result
