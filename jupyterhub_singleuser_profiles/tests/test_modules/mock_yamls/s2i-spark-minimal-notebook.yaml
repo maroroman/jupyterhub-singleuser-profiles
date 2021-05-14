@@ -1,0 +1,78 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-spark-minimal-notebook","namespace":"jsp-testing"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/odh-jupyterhub/s2i-spark-minimal-notebook"},"from":{"kind":"DockerImage","name":"quay.io/odh-jupyterhub/s2i-spark-minimal-notebook:py36-spark2.4.5-hadoop2.7.3"},"name":"py36-spark2.4.5-hadoop2.7.3","referencePolicy":{"type":"Source"}}]}}
+    opendatahub.io/image-order: '50'
+    openshift.io/image.dockerRepositoryCheck: '2021-05-05T09:43:29Z'
+  resourceVersion: '1306382'
+  name: s2i-spark-minimal-notebook
+  uid: d3adf19f-1aae-4a82-bc1a-96755b31d981
+  creationTimestamp: '2021-05-05T09:43:28Z'
+  generation: 2
+  managedFields:
+    - manager: kfctl
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-05-05T09:43:28Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:component.opendatahub.io/name': {}
+            'f:opendatahub.io/component': {}
+            'f:opendatahub.io/notebook-image': {}
+        'f:spec':
+          'f:lookupPolicy':
+            'f:local': {}
+          'f:tags':
+            .: {}
+            'k:{"name":"py36-spark2.4.5-hadoop2.7.3"}':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/imported-from': {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+              'f:generation': {}
+              'f:importPolicy': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-05-11T11:02:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:opendatahub.io/image-order': {}
+  namespace: jsp-testing
+  labels:
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: py36-spark2.4.5-hadoop2.7.3
+      annotations:
+        openshift.io/imported-from: quay.io/odh-jupyterhub/s2i-spark-minimal-notebook
+      from:
+        kind: DockerImage
+        name: >-
+          quay.io/odh-jupyterhub/s2i-spark-minimal-notebook:py36-spark2.4.5-hadoop2.7.3
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Source

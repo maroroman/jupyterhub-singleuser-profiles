@@ -1,0 +1,89 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+      notebook image with minimal dependency set to start experimenting with
+      Jupyter environment.","opendatahub.io/notebook-image-name":"Minimal
+      Notebook
+      Image","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-minimal-notebook"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-minimal-notebook","namespace":"jsp-testing"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/thoth-station/s2i-minimal-notebook"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-minimal-notebook:v0.0.7"},"name":"v0.0.7","referencePolicy":{"type":"Source"}}]}}
+    opendatahub.io/image-order: '30'
+    opendatahub.io/notebook-image-desc: >-
+      Jupyter notebook image with minimal dependency set to start experimenting
+      with Jupyter environment.
+    opendatahub.io/notebook-image-name: Minimal Notebook Image
+    opendatahub.io/notebook-image-url: 'https://github.com/thoth-station/s2i-minimal-notebook'
+    openshift.io/image.dockerRepositoryCheck: '2021-05-05T09:43:29Z'
+  resourceVersion: '1306205'
+  name: s2i-minimal-notebook
+  uid: ec7da921-6761-4b24-b13a-9b12a297af45
+  creationTimestamp: '2021-05-05T09:43:26Z'
+  generation: 2
+  managedFields:
+    - manager: kfctl
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-05-05T09:43:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:opendatahub.io/notebook-image-desc': {}
+            'f:opendatahub.io/notebook-image-name': {}
+            'f:opendatahub.io/notebook-image-url': {}
+          'f:labels':
+            .: {}
+            'f:component.opendatahub.io/name': {}
+            'f:opendatahub.io/component': {}
+            'f:opendatahub.io/notebook-image': {}
+        'f:spec':
+          'f:lookupPolicy':
+            'f:local': {}
+          'f:tags':
+            .: {}
+            'k:{"name":"v0.0.7"}':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/imported-from': {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+              'f:generation': {}
+              'f:importPolicy': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-05-11T11:01:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:opendatahub.io/image-order': {}
+  namespace: jsp-testing
+  labels:
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: v0.0.7
+      annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-minimal-notebook
+      from:
+        kind: DockerImage
+        name: 'quay.io/thoth-station/s2i-minimal-notebook:v0.0.7'
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Source

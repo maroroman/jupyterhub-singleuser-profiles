@@ -1,0 +1,86 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+      notebook image with Elyra-AI
+      installed","opendatahub.io/notebook-image-name":"Elyra Notebook
+      Image","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-lab-elyra"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-lab-elyra","namespace":"jsp-testing"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/thoth-station/s2i-lab-elyra"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-lab-elyra:v0.0.8"},"name":"v0.0.8","referencePolicy":{"type":"Source"}}]}}
+    opendatahub.io/image-order: '10'
+    opendatahub.io/notebook-image-desc: Jupyter notebook image with Elyra-AI installed
+    opendatahub.io/notebook-image-name: Elyra Notebook Image
+    opendatahub.io/notebook-image-url: 'https://github.com/thoth-station/s2i-lab-elyra'
+    openshift.io/image.dockerRepositoryCheck: '2021-05-05T09:43:26Z'
+  resourceVersion: '1306150'
+  name: s2i-lab-elyra
+  uid: b49d26a4-878c-420d-9324-c4b9186471a5
+  creationTimestamp: '2021-05-05T09:43:26Z'
+  generation: 2
+  managedFields:
+    - manager: kfctl
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-05-05T09:43:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:opendatahub.io/notebook-image-desc': {}
+            'f:opendatahub.io/notebook-image-name': {}
+            'f:opendatahub.io/notebook-image-url': {}
+          'f:labels':
+            .: {}
+            'f:component.opendatahub.io/name': {}
+            'f:opendatahub.io/component': {}
+            'f:opendatahub.io/notebook-image': {}
+        'f:spec':
+          'f:lookupPolicy':
+            'f:local': {}
+          'f:tags':
+            .: {}
+            'k:{"name":"v0.0.8"}':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/imported-from': {}
+              'f:from':
+                .: {}
+                'f:kind': {}
+                'f:name': {}
+              'f:generation': {}
+              'f:importPolicy': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-05-11T11:01:18Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:opendatahub.io/image-order': {}
+  namespace: jsp-testing
+  labels:
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: v0.0.8
+      annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-lab-elyra
+      from:
+        kind: DockerImage
+        name: 'quay.io/thoth-station/s2i-lab-elyra:v0.0.8'
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Source

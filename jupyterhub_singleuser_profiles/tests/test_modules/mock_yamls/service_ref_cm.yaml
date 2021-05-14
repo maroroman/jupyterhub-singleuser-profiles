@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: '2021-05-14T10:43:09Z'
+  name: singleuser-service-ref-opentlc-2dmgr
+  namespace: jsp-testing
+  resourceVersion: '1823260'
+  selfLink: /api/v1/namespaces/jsp-testing/configmaps/singleuser-service-ref-opentlc-2dmgr
+  uid: f4b02796-1234-4527-b1ac-e8c9f0362509
