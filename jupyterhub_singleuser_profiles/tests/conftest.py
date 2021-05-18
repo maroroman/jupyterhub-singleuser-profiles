@@ -1,6 +1,9 @@
 import pytest
+import pytest_mock
 import requests
 import requests_mock
+from . import mock_openshift
+from mock import Mock, patch
 
 from .. import profiles, sizes, service, images
 
@@ -8,9 +11,10 @@ from .. import profiles, sizes, service, images
 def get_adapter():
   pass
 
+@patch.object(profiles.SingleuserProfiles, 'openshift', mock_openshift)
 @pytest.fixture(scope="module")
 def get_profiles():
-  return profiles.SingleuserProfiles(namespace="jsp-testing", verify_ssl=False)
+  return profiles.SingleuserProfiles(namespace="default", verify_ssl=False)
 
 @pytest.fixture(scope="module")
 def loaded_profiles(get_profiles):

@@ -2,6 +2,7 @@ openshift
 PyYAML
 requests
 requests_mock
+mock
 jsonpath-rw
 connexion[swagger-ui]
 connexion

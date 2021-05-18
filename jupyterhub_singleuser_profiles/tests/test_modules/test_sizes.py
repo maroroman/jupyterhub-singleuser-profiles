@@ -1,4 +1,4 @@
-from mock_data import Mockdata
+from ..mock_data import Mockdata
 import pytest
 
 Mock = Mockdata()
@@ -6,6 +6,8 @@ Mock = Mockdata()
 size_param = [("Small", Mock._SIZES[0]),("Medium", Mock._SIZES[1]),("Large", Mock._SIZES[2])]
 
 class TestSizes:
+
+    
 
     def test_get_sizes(self,loaded_profiles):
         assert loaded_profiles.get_sizes() == Mock._SIZES

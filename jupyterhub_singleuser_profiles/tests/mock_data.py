@@ -1,0 +1,76 @@
+import yaml
+import sys
+import os
+
+class Mockdata:
+
+    def __init__(self):
+
+        self._SIZES = [{'name': 'Small',
+            'resources': {'requests': {'memory': '1Gi', 'cpu': 1},
+            'limits': {'memory': '2Gi', 'cpu': 2}}},
+            {'name': 'Medium',
+            'resources': {'requests': {'memory': '2Gi', 'cpu': 2},
+            'limits': {'memory': '4Gi', 'cpu': 4}}},
+            {'name': 'Large',
+            'resources': {'requests': {'memory': '4Gi', 'cpu': 4},
+            'limits': {'memory': '8Gi', 'cpu': 8}}}]
+        
+        self._IMAGES = [{'description': 'Jupyter notebook image containing dependencies for training Tensorflow models.',
+  'url': 'https://github.com/thoth-station/s2i-tensorflow-notebook',
+  'display_name': 'Tensorflow Notebook Image',
+  'name': 's2i-tensorflow-notebook:v0.0.2',
+  'content': {'software': [], 'dependencies': []},
+  'default': False,
+  'order': 10},
+ {'description': 'Jupyter notebook image with a set of data science libraries that advanced AI/ML notebooks will use as a base image to provide a standard for libraries avialable in all notebooks',
+  'url': 'https://github.com/thoth-station/s2i-generic-data-science-notebook',
+  'display_name': 'Standard Data Science',
+  'name': 's2i-generic-data-science-notebook:v0.0.2',
+  'content': {'software': [{'name': 'Python', 'version': 'v3.8.3'}],
+   'dependencies': [{'name': 'Boto3', 'version': '1.17.11'},
+    {'name': 'Kafka-Python', 'version': '2.0.2'},
+    {'name': 'Matplotlib', 'version': '3.1.3'},
+    {'name': 'Numpy', 'version': '1.20.2'},
+    {'name': 'Pandas', 'version': '1.2.3'},
+    {'name': 'Scipy', 'version': '1.6.2'}]},
+  'default': False,
+  'order': 100},
+ {'description': 'Jupyter notebook image with Elyra-AI installed',
+  'url': 'https://github.com/thoth-station/s2i-lab-elyra',
+  'display_name': 'Elyra Notebook Image',
+  'name': 's2i-lab-elyra:v0.0.8',
+  'content': {'software': [], 'dependencies': []},
+  'default': False,
+  'order': 100},
+ {'description': 'Jupyter notebook image with minimal dependency set to start experimenting with Jupyter environment.',
+  'url': 'https://github.com/thoth-station/s2i-minimal-notebook',
+  'display_name': 'Minimal Notebook Image',
+  'name': 's2i-minimal-notebook:v0.0.7',
+  'content': {'software': [], 'dependencies': []},
+  'default': False,
+  'order': 100},
+ {'description': 'Jupyter notebook image containing basic dependencies for data science and machine learning work.',
+  'url': 'https://github.com/thoth-station/s2i-minimal-notebook',
+  'display_name': 'SciPy Notebook Image',
+  'name': 's2i-scipy-notebook:v0.0.2',
+  'content': {'software': [], 'dependencies': []},
+  'default': False,
+  'order': 100},
+ {'description': None,
+  'url': None,
+  'display_name': None,
+  'name': 's2i-spark-minimal-notebook:py36-spark2.4.5-hadoop2.7.3',
+  'content': {'software': [], 'dependencies': []},
+  'default': False,
+  'order': 100},
+ {'description': None,
+  'url': None,
+  'display_name': None,
+  'name': 's2i-spark-scipy-notebook:3.6',
+  'content': {'software': [], 'dependencies': []},
+  'default': False,
+  'order': 100}]
+
+        with open(os.path.join(sys.path[0], "jupyterhub_singleuser_profiles/tests/mock_yamls/service_ref_cm.yaml"), "r") as service_ref_cm:
+            self._SERVICE_REF_CM = yaml.load(service_ref_cm)

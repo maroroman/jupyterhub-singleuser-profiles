@@ -1,0 +1,622 @@
+apiVersion: image.openshift.io/v1
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+        notebook image with a set of data science libraries that advanced AI/ML notebooks
+        will use as a base image to provide a standard for libraries avialable in
+        all notebooks","opendatahub.io/notebook-image-name":"Standard Data Science","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-generic-data-science-notebook"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-generic-data-science-notebook","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"opendatahub.io/notebook-python-dependencies":"[{\"name\":\"Boto3\",\"version\":\"1.17.11\"},{\"name\":\"Kafka-Python\",\"version\":\"2.0.2\"},{\"name\":\"Matplotlib\",\"version\":\"3.1.3\"},{\"name\":\"Numpy\",\"version\":\"1.20.2\"},{\"name\":\"Pandas\",\"version\":\"1.2.3\"},{\"name\":\"Scipy\",\"version\":\"1.6.2\"}]","opendatahub.io/notebook-software":"[{\"name\":\"Python\",\"version\":\"v3.8.3\"}]","openshift.io/imported-from":"quay.io/thoth-station/s2i-generic-data-science-notebook"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-generic-data-science-notebook:v0.0.2"},"name":"v0.0.2","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      opendatahub.io/notebook-image-desc: Jupyter notebook image with a set of data
+        science libraries that advanced AI/ML notebooks will use as a base image to
+        provide a standard for libraries avialable in all notebooks
+      opendatahub.io/notebook-image-name: Standard Data Science
+      opendatahub.io/notebook-image-url: https://github.com/thoth-station/s2i-generic-data-science-notebook
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:18:57Z'
+    creationTimestamp: '2021-05-17T13:18:56Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:opendatahub.io/notebook-image-desc: {}
+            f:opendatahub.io/notebook-image-name: {}
+            f:opendatahub.io/notebook-image-url: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"v0.0.2"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:opendatahub.io/notebook-python-dependencies: {}
+                f:opendatahub.io/notebook-software: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:56Z'
+    name: s2i-generic-data-science-notebook
+    namespace: vpavlin-odh
+    resourceVersion: '88758'
+    uid: 490f9f3d-ec58-4518-b1a8-125a1cd34eb5
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        opendatahub.io/notebook-python-dependencies: '[{"name":"Boto3","version":"1.17.11"},{"name":"Kafka-Python","version":"2.0.2"},{"name":"Matplotlib","version":"3.1.3"},{"name":"Numpy","version":"1.20.2"},{"name":"Pandas","version":"1.2.3"},{"name":"Scipy","version":"1.6.2"}]'
+        opendatahub.io/notebook-software: '[{"name":"Python","version":"v3.8.3"}]'
+        openshift.io/imported-from: quay.io/thoth-station/s2i-generic-data-science-notebook
+      from:
+        kind: DockerImage
+        name: quay.io/thoth-station/s2i-generic-data-science-notebook:v0.0.2
+      generation: 2
+      importPolicy: {}
+      name: v0.0.2
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-generic-data-science-notebook
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-generic-data-science-notebook
+    tags:
+    - items:
+      - created: '2021-05-17T13:18:57Z'
+        dockerImageReference: quay.io/thoth-station/s2i-generic-data-science-notebook@sha256:438f7b3d82fa52403a91ad6cbabcc77e1b460a346c7600db02469e347b2ac165
+        generation: 2
+        image: sha256:438f7b3d82fa52403a91ad6cbabcc77e1b460a346c7600db02469e347b2ac165
+      tag: v0.0.2
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+        notebook image with Elyra-AI installed","opendatahub.io/notebook-image-name":"Elyra
+        Notebook Image","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-lab-elyra"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-lab-elyra","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/thoth-station/s2i-lab-elyra"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-lab-elyra:v0.0.8"},"name":"v0.0.8","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      opendatahub.io/notebook-image-desc: Jupyter notebook image with Elyra-AI installed
+      opendatahub.io/notebook-image-name: Elyra Notebook Image
+      opendatahub.io/notebook-image-url: https://github.com/thoth-station/s2i-lab-elyra
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:18:57Z'
+    creationTimestamp: '2021-05-17T13:18:57Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:opendatahub.io/notebook-image-desc: {}
+            f:opendatahub.io/notebook-image-name: {}
+            f:opendatahub.io/notebook-image-url: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"v0.0.8"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:57Z'
+    name: s2i-lab-elyra
+    namespace: vpavlin-odh
+    resourceVersion: '88785'
+    uid: c9f8f5b0-a275-44f2-a438-beff95b205f2
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-lab-elyra
+      from:
+        kind: DockerImage
+        name: quay.io/thoth-station/s2i-lab-elyra:v0.0.8
+      generation: 2
+      importPolicy: {}
+      name: v0.0.8
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-lab-elyra
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-lab-elyra
+    tags:
+    - items:
+      - created: '2021-05-17T13:18:57Z'
+        dockerImageReference: quay.io/thoth-station/s2i-lab-elyra@sha256:d9518f0531c4f8ec60dae9ff91a1cd621e790339fbd4b8b45145d146f9b5b1d8
+        generation: 2
+        image: sha256:d9518f0531c4f8ec60dae9ff91a1cd621e790339fbd4b8b45145d146f9b5b1d8
+      tag: v0.0.8
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+        notebook image with minimal dependency set to start experimenting with Jupyter
+        environment.","opendatahub.io/notebook-image-name":"Minimal Notebook Image","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-minimal-notebook"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-minimal-notebook","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/thoth-station/s2i-minimal-notebook"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-minimal-notebook:v0.0.7"},"name":"v0.0.7","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      opendatahub.io/image-order: '0'
+      opendatahub.io/notebook-image-desc: Jupyter notebook image with minimal dependency
+        set to start experimenting with Jupyter environment.
+      opendatahub.io/notebook-image-name: Minimal Notebook Image
+      opendatahub.io/notebook-image-url: https://github.com/thoth-station/s2i-minimal-notebook
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:18:59Z'
+    creationTimestamp: '2021-05-17T13:18:57Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:opendatahub.io/notebook-image-desc: {}
+            f:opendatahub.io/notebook-image-name: {}
+            f:opendatahub.io/notebook-image-url: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"v0.0.7"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:57Z'
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:opendatahub.io/image-order: {}
+      manager: Mozilla
+      operation: Update
+      time: '2021-05-17T13:25:44Z'
+    name: s2i-minimal-notebook
+    namespace: vpavlin-odh
+    resourceVersion: '90958'
+    uid: e9182f1a-4676-4455-9231-1cadd278213a
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-minimal-notebook
+      from:
+        kind: DockerImage
+        name: quay.io/thoth-station/s2i-minimal-notebook:v0.0.7
+      generation: 2
+      importPolicy: {}
+      name: v0.0.7
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-minimal-notebook
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-minimal-notebook
+    tags:
+    - items:
+      - created: '2021-05-17T13:18:59Z'
+        dockerImageReference: quay.io/thoth-station/s2i-minimal-notebook@sha256:eacfa74842ce6330991d945408bb37c3e8f37246ff3f1b98837cf7ae4f5a78af
+        generation: 2
+        image: sha256:eacfa74842ce6330991d945408bb37c3e8f37246ff3f1b98837cf7ae4f5a78af
+      tag: v0.0.7
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+        notebook image containing basic dependencies for data science and machine
+        learning work.","opendatahub.io/notebook-image-name":"SciPy Notebook Image","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-minimal-notebook"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-scipy-notebook","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/thoth-station/s2i-scipy-notebook"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-scipy-notebook:v0.0.2"},"name":"v0.0.2","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      opendatahub.io/notebook-image-desc: Jupyter notebook image containing basic
+        dependencies for data science and machine learning work.
+      opendatahub.io/notebook-image-name: SciPy Notebook Image
+      opendatahub.io/notebook-image-url: https://github.com/thoth-station/s2i-minimal-notebook
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:19:00Z'
+    creationTimestamp: '2021-05-17T13:18:58Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:opendatahub.io/notebook-image-desc: {}
+            f:opendatahub.io/notebook-image-name: {}
+            f:opendatahub.io/notebook-image-url: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"v0.0.2"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:58Z'
+    name: s2i-scipy-notebook
+    namespace: vpavlin-odh
+    resourceVersion: '88830'
+    uid: 91b186aa-ff70-4cfc-9bb5-1270ede003ee
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-scipy-notebook
+      from:
+        kind: DockerImage
+        name: quay.io/thoth-station/s2i-scipy-notebook:v0.0.2
+      generation: 2
+      importPolicy: {}
+      name: v0.0.2
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-scipy-notebook
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-scipy-notebook
+    tags:
+    - items:
+      - created: '2021-05-17T13:19:00Z'
+        dockerImageReference: quay.io/thoth-station/s2i-scipy-notebook@sha256:62918f08606e0acee97122b14e3cb599adafc0ef6eec98eb63e8635443c41470
+        generation: 2
+        image: sha256:62918f08606e0acee97122b14e3cb599adafc0ef6eec98eb63e8635443c41470
+      tag: v0.0.2
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-spark-minimal-notebook","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/odh-jupyterhub/s2i-spark-minimal-notebook"},"from":{"kind":"DockerImage","name":"quay.io/odh-jupyterhub/s2i-spark-minimal-notebook:py36-spark2.4.5-hadoop2.7.3"},"name":"py36-spark2.4.5-hadoop2.7.3","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:18:59Z'
+    creationTimestamp: '2021-05-17T13:18:58Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"py36-spark2.4.5-hadoop2.7.3"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:58Z'
+    name: s2i-spark-minimal-notebook
+    namespace: vpavlin-odh
+    resourceVersion: '88804'
+    uid: 0e0f3ceb-2a56-43d7-8fe6-bcbbdd47587c
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/odh-jupyterhub/s2i-spark-minimal-notebook
+      from:
+        kind: DockerImage
+        name: quay.io/odh-jupyterhub/s2i-spark-minimal-notebook:py36-spark2.4.5-hadoop2.7.3
+      generation: 2
+      importPolicy: {}
+      name: py36-spark2.4.5-hadoop2.7.3
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-spark-minimal-notebook
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-spark-minimal-notebook
+    tags:
+    - items:
+      - created: '2021-05-17T13:18:59Z'
+        dockerImageReference: quay.io/odh-jupyterhub/s2i-spark-minimal-notebook@sha256:3d68e863b2575442e99239bcd963e53729e39c2ac10d6fef6ece8174a8de5513
+        generation: 2
+        image: sha256:3d68e863b2575442e99239bcd963e53729e39c2ac10d6fef6ece8174a8de5513
+      tag: py36-spark2.4.5-hadoop2.7.3
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-spark-scipy-notebook","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/odh-jupyterhub/s2i-spark-scipy-notebook"},"from":{"kind":"DockerImage","name":"quay.io/odh-jupyterhub/s2i-spark-scipy-notebook:3.6"},"name":"3.6","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:19:00Z'
+    creationTimestamp: '2021-05-17T13:18:59Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"3.6"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:59Z'
+    name: s2i-spark-scipy-notebook
+    namespace: vpavlin-odh
+    resourceVersion: '88828'
+    uid: 505b7e98-701a-4858-be17-d1dec86fb87c
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/odh-jupyterhub/s2i-spark-scipy-notebook
+      from:
+        kind: DockerImage
+        name: quay.io/odh-jupyterhub/s2i-spark-scipy-notebook:3.6
+      generation: 2
+      importPolicy: {}
+      name: '3.6'
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-spark-scipy-notebook
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-spark-scipy-notebook
+    tags:
+    - items:
+      - created: '2021-05-17T13:19:00Z'
+        dockerImageReference: quay.io/odh-jupyterhub/s2i-spark-scipy-notebook@sha256:0f6272ac4f4471f0573ceafecb4c73555653573e87a85ddbbad7b17673734874
+        generation: 2
+        image: sha256:0f6272ac4f4471f0573ceafecb4c73555653573e87a85ddbbad7b17673734874
+      tag: '3.6'
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{"opendatahub.io/notebook-image-desc":"Jupyter
+        notebook image containing dependencies for training Tensorflow models.","opendatahub.io/notebook-image-name":"Tensorflow
+        Notebook Image","opendatahub.io/notebook-image-url":"https://github.com/thoth-station/s2i-tensorflow-notebook"},"labels":{"component.opendatahub.io/name":"jupyterhub","opendatahub.io/component":"true","opendatahub.io/notebook-image":"true"},"name":"s2i-tensorflow-notebook","namespace":"vpavlin-odh"},"spec":{"lookupPolicy":{"local":true},"tags":[{"annotations":{"openshift.io/imported-from":"quay.io/thoth-station/s2i-tensorflow-notebook"},"from":{"kind":"DockerImage","name":"quay.io/thoth-station/s2i-tensorflow-notebook:v0.0.2"},"name":"v0.0.2","referencePolicy":{"type":"Source"}}]}}
+
+        '
+      opendatahub.io/notebook-image-desc: Jupyter notebook image containing dependencies
+        for training Tensorflow models.
+      opendatahub.io/notebook-image-name: Tensorflow Notebook Image
+      opendatahub.io/notebook-image-order: '10'
+      opendatahub.io/notebook-image-url: https://github.com/thoth-station/s2i-tensorflow-notebook
+      openshift.io/image.dockerRepositoryCheck: '2021-05-17T13:19:01Z'
+    creationTimestamp: '2021-05-17T13:18:59Z'
+    generation: 2
+    labels:
+      component.opendatahub.io/name: jupyterhub
+      opendatahub.io/component: 'true'
+      opendatahub.io/notebook-image: 'true'
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:opendatahub.io/notebook-image-desc: {}
+            f:opendatahub.io/notebook-image-name: {}
+            f:opendatahub.io/notebook-image-url: {}
+          f:labels:
+            .: {}
+            f:component.opendatahub.io/name: {}
+            f:opendatahub.io/component: {}
+            f:opendatahub.io/notebook-image: {}
+        f:spec:
+          f:lookupPolicy:
+            f:local: {}
+          f:tags:
+            .: {}
+            k:{"name":"v0.0.2"}:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/imported-from: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+              f:generation: {}
+              f:importPolicy: {}
+              f:name: {}
+              f:referencePolicy:
+                .: {}
+                f:type: {}
+      manager: kfctl1.2
+      operation: Update
+      time: '2021-05-17T13:18:59Z'
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:opendatahub.io/notebook-image-order: {}
+      manager: Mozilla
+      operation: Update
+      time: '2021-05-17T14:15:16Z'
+    name: s2i-tensorflow-notebook
+    namespace: vpavlin-odh
+    resourceVersion: '104959'
+    uid: 8f11ecc5-c6e0-40a8-9b97-9115cf479a2d
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-tensorflow-notebook
+      from:
+        kind: DockerImage
+        name: quay.io/thoth-station/s2i-tensorflow-notebook:v0.0.2
+      generation: 2
+      importPolicy: {}
+      name: v0.0.2
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/vpavlin-odh/s2i-tensorflow-notebook
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster-fdc5.fdc5.sandbox1237.opentlc.com/vpavlin-odh/s2i-tensorflow-notebook
+    tags:
+    - items:
+      - created: '2021-05-17T13:19:01Z'
+        dockerImageReference: quay.io/thoth-station/s2i-tensorflow-notebook@sha256:cb654074241f1d6972e9123d6f1913a5ed196c82508b65b3e2ec4d059b3cd13a
+        generation: 2
+        image: sha256:cb654074241f1d6972e9123d6f1913a5ed196c82508b65b3e2ec4d059b3cd13a
+      tag: v0.0.2
+kind: ImageStreamList
+metadata:
+  resourceVersion: '197123'
+  
