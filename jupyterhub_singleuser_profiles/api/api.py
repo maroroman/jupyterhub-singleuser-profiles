@@ -20,6 +20,7 @@ _PROFILES = SingleuserProfiles(verify_ssl=False)
 _PROFILES.load_profiles()
 
 _LOGGER = logging.getLogger(__name__)
+_LOGGER.setLevel(logging.DEBUG)
 
 prefix = os.environ.get('JUPYTERHUB_SERVICE_PREFIX', '/')
 
@@ -35,12 +36,17 @@ def authenticated(f):
         cookie = request.cookies.get(auth.cookie_name)
         token = request.headers.get(auth.auth_header_name)
         for_user = connexion.request.headers.get('For-User')
+        _LOGGER.error("Getting user: cookie=%s token=%s for_user=%s" % (cookie, token, for_user))
         if cookie:
             user = auth.user_for_cookie(cookie, use_cache=True)
+            _LOGGER.error("Got user with cookie:")
+            _LOGGER.error(user)
             if not user:
                 user = auth.user_for_cookie(cookie, use_cache=False)
         elif token:
             user = auth.user_for_token(token, use_cache=True)
+            _LOGGER.error("Got user with token:")
+            _LOGGER.error(user)
             if not user:
                 user = auth.user_for_token(token, use_cache=False)
         else:
