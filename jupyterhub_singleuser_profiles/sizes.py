@@ -19,11 +19,14 @@ class Sizes(object):
             cpu = self.openshift.calc_cpu(size['resources']['requests'].get('cpu'))
             # Search sorted capacity list from lowest node capacity up
             for node_cap in capacity_list:
-                if mem < node_cap['allocatable_memory']*capacity_buffer and cpu < node_cap['allocatable_cpu']*capacity_buffer:
+                mem_cap = node_cap['allocatable_memory']*capacity_buffer
+                cpu_cap = node_cap['allocatable_cpu']*capacity_buffer
+                if mem < mem_cap and cpu < cpu_cap:
                     size['schedulable'] = True #Pod small enough for node
                     break
                 else:
                     size['schedulable'] = False #Pod too big for all nodes (Do not show)
+                    _LOGGER.error("Size %s not schedulable due to low capacity. Request: MEM:%s CPU:%s | Available: MEM:%s CPU:%s" % size['name'],mem,cpu,mem_cap,cpu_cap)
 
     @property
     def sizes(self):
