@@ -53,17 +53,13 @@ class Images(object):
 
         for image in image_list:
             for tag in image.tags:
-                if not first_image_with_tags:
-                    first_image_with_tags = image
                 if tag.default:
-                    return self.get_default_image_tag(image, tag)
+                    return self.get_default_image_tag(image)
 
-        return self.get_default_image_tag(first_image_with_tags)
-    def get_default_image_tag(self, image, tag=None):
-        if tag:
-            return "%s:%s" % (image.name, tag.name)
+        return self.get_default_image_tag(image_list[0]) if len(image_list) else None
 
-        return "%s:%s" % (image.name, image.tags[0].name)
+    def get_default_image_tag(self, image):
+        return "%s:%s" % (image.name, image.tags[0].name) if len(image.tags) else None
 
     def get_build_number(self, build):
         if build is None:

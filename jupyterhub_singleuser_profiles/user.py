@@ -16,9 +16,9 @@ class User(object):
   _TYPE_SECRET = "password"
   _TYPE_ENV = "text"
 
-  def __init__(self, openshift, images, notebook_namespace=None):
+  def __init__(self, openshift, default_image, notebook_namespace=None):
       self.openshift = openshift
-      self.images = images
+      self._DEFAULT_IMAGE = default_image
       self.notebook_namespace = notebook_namespace
 
   # THis method is going to be removed in the future

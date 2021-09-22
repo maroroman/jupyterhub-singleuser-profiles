@@ -82,6 +82,25 @@ paths:
             application/json:
               schema:
                 $ref: '#components/schemas/ImageInfo'
+  
+  /api/images/{image_name}:
+    get:
+      operationId: jupyterhub_singleuser_profiles.api.api.get_image_info
+      summary: Get human readable image information in a json.
+      parameters:
+        - name: image_name
+          in: path
+          required: true
+          description: Name of the image
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ImageInfo"
         '404':
           description: No images found
 

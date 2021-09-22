@@ -36,7 +36,7 @@ class SingleuserProfiles(object):
 
     self.service = Service(self.openshift, self.namespace)
     self.images = Images(self.openshift, namespace=namespace)
-    self.user = User(self.openshift, images=self.images, notebook_namespace=notebook_namespace)
+    self.user = User(self.openshift, default_image=self.images.get_default(), notebook_namespace=notebook_namespace)
 
   @property
   def gpu_mode(self):
@@ -167,6 +167,10 @@ class SingleuserProfiles(object):
   def get_size(self, size):
     s = Sizes(self.sizes, self.openshift)
     return s.get_size(size)
+
+  def get_sizes(self):
+    s = Sizes(self.sizes, self.openshift)
+    return s.sizes
 
   def get_sizes(self):
     s = Sizes(self.sizes, self.openshift)
