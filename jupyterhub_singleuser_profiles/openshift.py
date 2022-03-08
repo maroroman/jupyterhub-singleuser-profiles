@@ -1,6 +1,7 @@
 import os
-import sys
+import subprocess
 import base64
+from unicodedata import name
 import yaml
 import kubernetes
 import logging
@@ -222,3 +223,17 @@ class OpenShift(object):
       result.append(kubernetes.client.ApiClient().sanitize_for_serialization(env_var)) #We need to sanitize the V1EnvVar to be able to serialize it later
 
     return result
+
+  def get_culler_timeout(self):
+    data = self.read_config_map('jupyterhub-cfg', 'data')
+    return data.get("culler_timeout")
+
+  
+  def set_culler_timeout(self, seconds):
+    self.write_config_map("jupyterhub-cfg", {'culler_timeout': str(seconds)}, 'data')
+
+    cmd = ['oc', 'rollout', 'latest', 'dc/jupyterhub-idle-culler'] # Redeploy the culler pod to apply env var change
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    output, error = process
+
+    return {'output': output, 'error': error}

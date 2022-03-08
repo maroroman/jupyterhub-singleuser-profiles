@@ -146,6 +146,34 @@ paths:
             text/plain:
               schema:
                 type: string
+  
+  /api/timeout:
+    parameters:
+      - in: query
+        name: timeout
+        schema:
+          type: integer
+        description: Culler timeout in SECONDS
+    get:
+      operationId: jupyterhub_singleuser_profiles.api.api.get_culler_timeout
+      summary: Returns current idle culler timeout as int
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+    post:
+      operationId: jupyterhub_singleuser_profiles.api.api.set_culler_timeout
+      summary: Updates culler timeout in SECONDS and returns it as response
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
 
 components:
   schemas:

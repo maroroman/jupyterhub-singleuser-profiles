@@ -132,6 +132,16 @@ def get_size_by_name(size_name, *args, **kwargs):
         return 'Not Found', 404
     return size_dict
 
+@authenticated
+def get_culler_timeout(*args, **kwargs):
+    return _PROFILES.openshift.get_culler_timeout(), 200
+
+
+@authenticated
+def set_culler_timeout(timeout, *args, **kwargs):
+    culler = _PROFILES.openshift.set_culler_timeout(timeout)
+    return dict(culler), 200
+
 app = connexion.App(__name__, specification_dir='.', options={'swagger_ui':True})
 app.add_api('swagger.yaml')
 
